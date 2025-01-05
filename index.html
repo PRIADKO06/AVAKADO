@@ -4,157 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тести</title>
-    <style>
-        /* Основні стилі для навігації та меню */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        #burger-menu {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 20px;
-        }
-
-        .burger-line {
-            height: 4px;
-            background-color: white;
-            width: 100%;
-        }
-
-        #burger-menu-dropdown {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            position: absolute;
-            top: 50px;
-            right: 0;
-            background-color: #333;
-            width: 100%;
-            padding: 10px;
-        }
-
-        #burger-menu-dropdown .dropdown-button {
-            background: none;
-            border: none;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            width: 100%;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        #burger-menu-dropdown .dropdown-button:hover {
-            background-color: #444;
-        }
-
-        .nav-button {
-            background: none;
-            border: none;
-            color: white;
-            padding: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            display: inline-block;
-        }
-
-        .nav-button:hover {
-            background-color: #444;
-        }
-
-        .premium-badge {
-            background-color: gold;
-            padding: 5px 10px;
-            border-radius: 5px;
-            color: black;
-            display: none;
-        }
-
-        #logo img {
-            width: 100px;
-            height: auto;
-        }
-
-        #main-menu {
-            text-align: center;
-            margin: 20px;
-        }
-
-        .test-button {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            font-size: 16px;
-            cursor: pointer;
-            margin: 5px;
-        }
-
-        .test-button:hover {
-            background-color: #45a049;
-        }
-
-        @media screen and (max-width: 768px) {
-            #burger-menu {
-                display: flex;
-            }
-
-            #burger-menu-dropdown {
-                display: flex;
-            }
-
-            .nav-button {
-                display: none;
-            }
-        }
-    </style>
-    <script>
-        // Функція для показу/приховування бургер-меню
-        function toggleBurgerMenu() {
-            var menu = document.getElementById('burger-menu-dropdown');
-            if (menu.style.display === 'flex') {
-                menu.style.display = 'none';
-            } else {
-                menu.style.display = 'flex';
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
+        <button class="nav-button" onclick="showHome()">Головна</button>
+        <button class="nav-button" onclick="showAbout()">Про нас</button>
+        <button class="nav-button" onclick="showNews()">Новини</button>
+        <button class="nav-button" onclick="showEntrance()" id="login-register-button">Вхід/Реєстрація</button>
+        <div class="premium-badge" id="Premium" style="display: none;">Premium status</div>
         <div id="logo">
-            <img src="logo.png" alt="Logo">
-        </div>
-        <button id="burger-menu" onclick="toggleBurgerMenu()">
-            <div class="burger-line"></div>
-            <div class="burger-line"></div>
-            <div class="burger-line"></div>
-        </button>
-        <div id="burger-menu-dropdown">
-            <button class="dropdown-button">Головна</button>
-            <button class="dropdown-button">Тести</button>
-            <button class="dropdown-button">Контакти</button>
-        </div>
-        <div>
-            <button class="nav-button">Головна</button>
-            <button class="nav-button">Тести</button>
-            <button class="nav-button">Контакти</button>
-            <span class="premium-badge">Premium</span>
+            <img src="images/logo.png" alt="Логотип" />
         </div>
     </header>
     <div id="main-menu">

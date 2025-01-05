@@ -1,530 +1,135 @@
-/* Основные стили */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background-color: #f4f4f4;
-    color: #333;
-}
+/* Адаптивна верстка */
 
-/* Стили для заголовков */
-h1 {
-    font-size: 2em;
-    color: #333;
-    margin: 20px 0;
-}
-
-h3 {
-    font-size: 2em;
-    color: #333;
-    margin: 20px 0;
-}
-
-
-h2 {
-    font-size: 5em;
-    color: #333;
-    margin: 20px 0;
-}
-
-.premium {
-    color: gold; /* Золотой цвет */
-    font-weight: 900;
-}
-
-/* Исходное состояние, текст невидим */
-h2, h3, .premium {
-    opacity: 0;
-    animation: fadeIn 2s forwards; /* Анимация появления */
-}
-
-/* Определение анимации */
-@keyframes fadeIn {
-    0% {
-        opacity: 0; /* На начале анимации текст невидим */
+/* Для екрану до 1200px (ноутбуки) */
+@media (max-width: 1200px) {
+    h1, h2, h3 {
+        font-size: 1.5em; /* Зменшуємо розмір шрифта для заголовків */
     }
-    100% {
-        opacity: 1; /* В конце анимации текст становится видимым */
+
+    #tests {
+        flex-direction: column; /* Перехід на вертикальне розташування кнопок тестів */
+    }
+
+    .test-button {
+        flex: 1 1 100%; /* Збільшити ширину кнопки на всю ширину */
+        max-width: none;
+    }
+
+    #main-menu {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .nav-button {
+        font-size: 12px; /* Зменшуємо розмір шрифта в кнопках меню */
+    }
+
+    #user-panel {
+        position: static; /* Переміщуємо панель користувача в потік документа */
+        width: 100%;
+        text-align: center;
+    }
+
+    #logo img {
+        height: 60px; /* Зменшуємо розмір логотипа */
+        width: auto;
+    }
+
+    .premium-badge {
+        font-size: 14px; /* Зменшуємо розмір шрифта для бейджа */
+        min-width: 100px;
+        padding: 5px;
     }
 }
 
-/* Стили для кнопок */
-button {
-    margin: 10px;
-    padding: 10px 20px;
-    background-color: #8A2BE2;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #6A1BB5;
-}
-
-/* Верхнее меню */
-header {
-    background-color: #8A2BE2;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    color: white;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-#login-register-button {
-    position: absolute;
-    top: 10px;    /* Отступ от верхнего края */
-    right: 30px;  /* Отступ от правого края */
-}
-
-.nav-button {
-    background-color: white;
-    color: #8A2BE2;
-    border: none;
-    padding: 10px 20px;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.nav-button:hover {
-    background-color: #6A1BB5;
-    color: white;
-}
-
-/* Основные блоки */
-#main-menu, #main-news, #news-list, #newsN1, #giftik, #newsN2, #about, #Entrance, #test-container, #results {
-    margin-top: 70px; /* Отступ под фиксированное меню */
-    padding: 20px;
-}
-
-#main-news, #news-list {
-    margin-top: 30px; /* Отступ под фиксированное меню */
-    padding: 20px;
-}
-
-#tests {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.test-button {
-    flex: 1 1 calc(33.333% - 40px);
-    max-width: 300px;
-    min-width: 150px;
-    text-align: center;
-    padding: 20px;
-    background-color: #8A2BE2;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.test-button:hover {
-    background-color: #6A1BB5;
-}
-
-/* Формы регистрации и входа */
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    margin: 20px auto;
-}
-
-input {
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-input:focus {
-    border-color: #8A2BE2;
-    outline: none;
-}
-
-/* Стили для уведомлений */
-.message {
-    color: #e74c3c;
-    font-size: 14px;
-    text-align: center;
-}
-
-#notification {
-    position: fixed;
-    bottom: 20px; /* Расстояние от нижнего края */
-    left: 50%;
-    transform: translateX(-50%); /* Сдвиг для центрирования */
-    background-color: #8A2BE2; /* Фиолетовый фон */
-    color: white;
-    padding: 15px 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
-    z-index: 1000;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    text-align: center;
-    min-width: 300px;
-}
-
-
-
-/* Панель пользователя */
-#user-panel {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: white;
-    color: #333;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    display: none;
-    z-index: 1000;
-}
-
-#user-panel p {
-    margin: 0 0 10px;
-    font-weight: bold;
-}
-
-#user-panel button {
-    padding: 10px 15px;
-    background-color: #8A2BE2;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
-}
-
-#user-panel button:hover {
-    background-color: #6A1BB5;
-}
-
-/* Вопросы теста */
-#test-container {
-    display: flex;
-    flex-wrap: wrap; /* Автоматический перенос строк */
-    justify-content: center;
-    gap: 20px; /* Расстояние между кнопками */
-}
-
-#answers button {
-    max-width: 300px; /* Максимальная ширина кнопки */
-    min-width: 150px; /* Минимальная ширина кнопки */
-    background-color: #6A1BB5;
-    border: 1px solid white;
-    flex: 1 1 calc(33.333% - 40px); /* Кнопки занимают треть строки (в процентах от ширины) */
-    text-align: center;
-}
-
-#answers button:hover {
-    background-color: #ddd;
-}
-
-/* Результаты теста */
-#results {
-    display: flex;
-    flex-wrap: wrap; /* Автоматический перенос строк */
-    justify-content: center;
-    gap: 20px; /* Расстояние между кнопками */
-}
-
-#results p {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin: 20px 0;
-}
-
-/* Окно аккаунта */
-.account-window {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 10;
-}
-
-#logo {
-    position: absolute;
-    left: 0.1px; /* Отступ от левого края */
-    top: 0.1px;  /* Отступ от верхнего края */
-}
-
-#logo img {
-    height: 80px; /* Высота логотипа */
-    width: 90px;  /* Автоматическая пропорциональная ширина */
-}
-
-.news-button1 {
-    flex: 1 1 calc(33.333% - 40px);
-    max-width: 500px;
-    min-width: 150px;
-    text-align: center;
-    padding: 80px;
-    background-color: #8A2BE2;
-    color: rgb(175, 255, 234);
-    font-weight: bold; /* Делает текст жирным */
-    text-shadow: 12px 12px 15px rgba(0, 0, 0, 0.5); /* Добавляет тень */
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 30px;
-    transition: background-color 0.3s ease;
-    background: url(images/newsN1.png);
-    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Увеличена длительность перехода */
-}
-
-.news-button1:hover {
-    background-color: #6A1BB5;
-    box-shadow: 0 39px 38px rgba(0, 0, 0, 0.3); /* Тень при наведении */
-    transform: scale(1.05); /* Небольшое увеличение кнопки */
-}
-
-.news-button2 {
-    flex: 1 1 calc(33.333% - 40px);
-    max-width: 500px;
-    min-width: 150px;
-    text-align: center;
-    padding: 80px;
-    background-color: #8A2BE2;
-    color: rgb(175, 255, 234);
-    font-weight: bold; /* Делает текст жирным */
-    text-shadow: 12px 12px 15px rgba(0, 0, 0, 0.5); /* Добавляет тень */
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 30px;
-    transition: background-color 0.3s ease;
-    background: url(images/newsN2.png);
-    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Увеличена длительность перехода */
-}
-
-.news-button2:hover {
-    background-color: #6A1BB5;
-    box-shadow: 0 39px 38px rgba(0, 0, 0, 0.3); /* Тень при наведении */
-    transform: scale(1.05); /* Небольшое увеличение кнопки */
-}
-
-#news-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.gift-button {
-    flex: 1 1 calc(33.333% - 40px);
-    max-width: 543px; /* Максимальная ширина кнопки */
-    min-width: 543px; /* Минимальная ширина */
-    height: 550px;
-    background-color: #ffffff;
-    text-align: center;
-    padding: 0;
-    margin-top: 60px; /* Отступ между изображением и текстом */
-    color: rgb(175, 255, 234);
-    font-weight: bold; /* Жирный текст */
-    text-shadow: 12px 12px 15px rgba(0, 0, 0, 0.5); /* тень */
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 30px;
-    background: url(images/gift.png) no-repeat center;
-    background-size: contain;
-    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Увеличена длительность перехода */
-}
-
-.gift-button:hover {
-    background-color: #ffffff;
-    box-shadow: 0 39px 38px rgba(0, 0, 0, 0.3); /* Тень при наведении */
-    transform: scale(1.05); /* Небольшое увеличение кнопки */
-}
-
-.premium-badge {
-    position: fixed;
-    color: gold;
-    font-weight: 900;
-    background-color: #000000;
-    min-width: 110px;
-    max-width: 510px;
-    padding: 7px;
-    border-radius: 10px;
-    font-size: 16px;
-    margin-left: 7px;
-    top: 20px;    /* Отступ от верхнего края */
-    right: 20px;  /* Отступ от правого края */
-    transition: background-color 0.3s ease;
-
-    /* Загальні стилі для мобільних пристроїв */
-    @media (max-width: 768px) {
-        /* Текст і заголовки */
-        h1, h2, h3 {
-            font-size: 1.5em;
-        }
-
-        /* Основні блоки */
-        #main-menu, #main-news, #news-list, #newsN1, #giftik, #newsN2, #about, #Entrance, #test-container, #results {
-            padding: 10px;
-            margin-top: 50px;
-        }
-
-        /* Верхнє меню */
-        header {
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        /* Кнопки навігації */
-        .nav-button {
-            font-size: 12px;
-            padding: 5px 10px;
-        }
-
-        /* Кнопки тестів */
-        .test-button {
-            font-size: 14px;
-            padding: 10px;
-            flex: 1 1 100%;
-        }
-
-        /* Відображення логотипа */
-        #logo img {
-            height: 60px;
-            width: 70px;
-        }
-
-        /* Кнопки новин */
-        .news-button1, .news-button2 {
-            font-size: 20px;
-            padding: 40px;
-            border-radius: 20px;
-        }
-
-        /* Подарункові кнопки */
-        .gift-button {
-            min-width: 300px;
-            height: 300px;
-            font-size: 20px;
-        }
-
-        /* Панель користувача */
-        #user-panel {
-            bottom: 10px;
-            right: 10px;
-            padding: 10px;
-        }
-
-        #user-panel button {
-            font-size: 12px;
-        }
+/* Для екрану до 768px (планшети) */
+@media (max-width: 768px) {
+    h1, h2, h3 {
+        font-size: 1.2em; /* Ще більше зменшуємо розмір шрифта для заголовків */
     }
 
-    /* Стільникові пристрої (менше 576px) */
-    @media (max-width: 576px) {
-        /* Заголовки */
-        h1, h2, h3 {
-            font-size: 1.2em;
-        }
-
-        /* Основний текст */
-        body {
-            font-size: 14px;
-        }
-
-        /* Верхнє меню */
-        header {
-            padding: 5px;
-        }
-
-        #login-register-button {
-            font-size: 12px;
-            padding: 5px;
-        }
-
-        /* Тестові блоки */
-        .test-button {
-            font-size: 12px;
-            padding: 5px;
-        }
-
-        /* Форми */
-        form {
-            padding: 10px;
-        }
-
-        input {
-            padding: 5px;
-            font-size: 14px;
-        }
-
-        /* Повідомлення */
-        #notification {
-            font-size: 12px;
-            padding: 10px;
-        }
-
-        /* Кнопки новин */
-        .news-button1, .news-button2 {
-            font-size: 16px;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        /* Подарункові кнопки */
-        .gift-button {
-            min-width: 200px;
-            height: 200px;
-        }
+    .news-button1, .news-button2, .gift-button {
+        flex: 1 1 100%; /* Розтягнути кнопки на всю ширину */
+        max-width: none;
+        padding: 60px 0; /* Зменшуємо відступи */
     }
 
-    /* Планшети (576px - 992px) */
-    @media (min-width: 576px) and (max-width: 992px) {
-        /* Заголовки */
-        h1, h2, h3 {
-            font-size: 1.8em;
-        }
+    #main-menu {
+        padding: 10px;
+    }
 
-        /* Кнопки новин */
-        .news-button1, .news-button2 {
-            font-size: 24px;
-            padding: 60px;
-        }
+    .nav-button {
+        font-size: 10px; /* Зменшення розміру шрифта */
+    }
 
-        /* Подарункові кнопки */
-        .gift-button {
-            min-width: 400px;
-            height: 400px;
-            font-size: 24px;
-        }
+    #user-panel {
+        padding: 10px;
+    }
+
+    .test-button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    #logo img {
+        height: 50px;
+        width: auto;
+    }
+}
+
+/* Для екрану до 480px (мобільні телефони) */
+@media (max-width: 480px) {
+    h1, h2, h3 {
+        font-size: 1em; /* Зменшуємо шрифт для мобільних пристроїв */
+    }
+
+    .premium-badge {
+        font-size: 12px;
+        padding: 3px;
+    }
+
+    #tests, #test-container {
+        flex-direction: column;
+        gap: 10px; /* Зменшуємо відстань між кнопками */
+    }
+
+    .test-button, .news-button1, .news-button2, .gift-button {
+        flex: 1 1 100%;
+        max-width: none;
+        font-size: 14px;
+        padding: 15px 0;
+    }
+
+    #main-menu {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    .nav-button {
+        font-size: 10px;
+        padding: 8px 16px;
+    }
+
+    #logo img {
+        height: 40px;
+        width: auto;
+    }
+
+    #user-panel {
+        width: 100%;
+        padding: 10px;
+        position: relative;
+    }
+
+    .message {
+        font-size: 12px; /* Зменшуємо шрифт повідомлень */
+    }
+
+    .premium {
+        font-size: 1em;
+    }
+
+    #notification {
+        min-width: 250px; /* Зменшуємо ширину сповіщення */
     }
 }

@@ -8,6 +8,87 @@ body {
     color: #333;
 }
 
+/* Стиль для самого бургер-меню */
+#burger-menu {
+    display: none; /* Спочатку приховане */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.burger-line {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Випадаюче меню */
+#burger-menu-dropdown {
+    display: none; /* Початково приховане */
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Під хедером */
+    right: 20px;
+    background-color: #8A2BE2;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.dropdown-button {
+    padding: 10px 20px;
+    color: white;
+    background-color: #8A2BE2;
+    border: none;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-button:hover {
+    background-color: #6A1BB5;
+}
+
+/* Відображення бургер-меню для мобільних пристроїв */
+@media (max-width: 768px) {
+    #burger-menu {
+        display: flex; /* Відображення бургер-меню */
+    }
+
+    #navbar {
+        display: none; /* Ховаємо звичайне меню */
+    }
+
+    #burger-menu-dropdown {
+        display: none; /* Початково приховане */
+        width: 200px; /* Ширина меню */
+    }
+}
+
+/* Активний стан бургер-меню */
+#burger-menu.active .burger-line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+#burger-menu.active .burger-line:nth-child(2) {
+    opacity: 0;
+}
+
+#burger-menu.active .burger-line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+#burger-menu-dropdown.active {
+    display: flex; /* Відображення випадаючого меню */
+}
+
 /* Стили для заголовков */
 h1 {
     font-size: 2em;

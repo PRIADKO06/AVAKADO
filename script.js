@@ -2,6 +2,14 @@ let users = {}; // Список пользователей (username > password)
 let currentUser = null; // Текущий пользователь
 document.getElementById("login").style.display = "none"; // Чтобы не было сразу входа и регистрации
 
+const burgerMenu = document.getElementById("burger-menu");
+const dropdownMenu = document.getElementById("burger-menu-dropdown");
+
+burgerMenu.addEventListener("click", () => {
+    burgerMenu.classList.toggle("active");
+    dropdownMenu.classList.toggle("active");
+});
+
 const tests = {
     1: [
         { question: "Скільки буде 2 + 2?", answers: ["3", "4", "5"], correct: 1 },

@@ -14,6 +14,17 @@
             <div class="burger-line"></div>
             <div class="burger-line"></div>
         </div>
+        <script>
+    // Знаходимо елементи бургер-меню та випадаючого меню
+    const burgerMenu = document.getElementById('burger-menu');
+    const burgerMenuDropdown = document.getElementById('burger-menu-dropdown');
+
+    // Додаємо слухач події на бургер-меню
+    burgerMenu.addEventListener('click', () => {
+        // Перемикаємо видимість випадаючого меню
+        burgerMenuDropdown.style.display = burgerMenuDropdown.style.display === 'flex' ? 'none' : 'flex';
+    });
+        </script>
         <nav id="burger-menu-dropdown">
             <button class="dropdown-button" onclick="showHome()">Головна</button>
             <button class="dropdown-button" onclick="showAbout()">Про нас</button>
